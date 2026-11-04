@@ -167,3 +167,15 @@ html{scroll-padding-top:127px}
 .hero .eyebrow{font-family:var(--font-body);font-weight:500;font-size:14px;letter-spacing:.4px}
 .hero .eyebrow span{margin:0 10px;opacity:.55}
 @media(max-width:760px){.hero .eyebrow{font-size:14px;letter-spacing:.4px}.hero .eyebrow span{margin:0 8px}}
+
+/* Approved local teal header */
+
+.header-band,#mobile-nav{background:var(--maav-midnight-teal);color:var(--maav-soft-cream)}
+.header-band{border-bottom:1px solid rgba(104,174,180,.25)}
+.header-band .brand-wordmark g:first-child,.header-band .brand-wordmark g:nth-child(2){stroke:var(--maav-soft-cream)}
+.header-band .brand-wordmark text{fill:var(--maav-soft-cream)}
+.header-band nav a:hover,#mobile-nav a:hover{color:var(--maav-sea-glass)}
+.header-band .menu{color:var(--maav-soft-cream);border-color:rgba(243,237,225,.4)}
+.header-band a:focus-visible,.header-band button:focus-visible,#mobile-nav a:focus-visible{outline-color:var(--maav-sea-glass)}
+#mobile-nav{border-color:rgba(104,174,180,.25)}
+
