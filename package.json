@@ -1,0 +1,23 @@
+{
+  "name": "maav-global-website",
+  "version": "1.0.0",
+  "description": "MAAV Global - Strategic advisory and technology consulting",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vshah2035-collab/MAAV-GLOBAL-WEBSITE.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vshah2035-collab/MAAV-GLOBAL-WEBSITE/issues"
+  },
+  "homepage": "https://github.com/vshah2035-collab/MAAV-GLOBAL-WEBSITE#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
