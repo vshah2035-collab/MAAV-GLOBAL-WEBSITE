@@ -205,3 +205,14 @@ html{scroll-padding-top:127px}
 .contact-email-note .email{font-size:inherit;color:var(--maav-midnight-teal);border-bottom:0}
 .contact-email-note .email:hover{text-decoration:underline;text-underline-offset:3px}
 @media(max-width:760px){.contact-actions{text-align:left}.contact-email-note{margin-top:12px}}
+
+/* Approved dark teal audience panels. */
+
+/* Preview only: softly grouped audience panels. */
+.audience-grid{gap:20px}
+.audience-grid article{background:var(--maav-midnight-teal);border:1px solid var(--maav-midnight-teal);border-radius:16px;padding:22px 24px}
+.audience-grid h3{color:var(--maav-soft-cream)}
+.audience-grid p{color:var(--maav-soft-cream)}
+@media(max-width:760px){.audience-grid{gap:16px}.audience-grid article{padding:20px}}
+
+.contact-confirmation{font-size:14px;line-height:1.6;color:var(--maav-midnight-teal);margin:14px 0 0;max-width:340px;margin-left:auto}.contact-confirmation:empty{display:none}@media(max-width:760px){.contact-confirmation{margin-left:0}}
