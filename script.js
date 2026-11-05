@@ -19,3 +19,33 @@ document.addEventListener('click',event=>{if(!event.target.closest('.about-dropd
 document.addEventListener('keydown',event=>{if(event.key==='Escape'){const active=toggles.find(b=>b.getAttribute('aria-expanded')==='true');if(active){closeDropdowns();active.focus();}else if(!mobileNav.hidden){closeMenu();menu.focus();}}});
 document.addEventListener('focusin',event=>{if(!event.target.closest('.about-dropdown'))closeDropdowns();});
 window.matchMedia('(max-width:760px)').addEventListener('change',closeMenu);
+
+// Contact form: delivery is enabled only once an endpoint is configured.
+const conversationForm=document.querySelector('.conversation-form');
+if(conversationForm){
+ const panel=document.querySelector('.conversation-panel');
+ const opener=document.querySelector('.conversation-open');
+ const fallback=document.querySelector('.contact-email-fallback');
+ const status=conversationForm.querySelector('.form-status');
+ const send=conversationForm.querySelector('[type="submit"]');
+ let sending=false;
+ opener.hidden=false;fallback.hidden=true;
+ function closeConversation(){panel.hidden=true;opener.setAttribute('aria-expanded','false');opener.focus();}
+ opener.addEventListener('click',()=>{const open=panel.hidden;panel.hidden=!open;opener.setAttribute('aria-expanded',String(open));if(open)conversationForm.querySelector('input').focus();});
+ conversationForm.querySelector('.form-close').addEventListener('click',closeConversation);
+ panel.addEventListener('keydown',event=>{if(event.key==='Escape'){event.stopPropagation();closeConversation();}});
+ conversationForm.addEventListener('submit',async event=>{
+  event.preventDefault();if(sending)return;
+  const endpoint=conversationForm.dataset.endpoint;
+  if(!endpoint){status.textContent='This form is not accepting messages yet. Please email hello@maavglobal.com.';status.focus();return;}
+  if(!conversationForm.reportValidity())return;
+  sending=true;send.disabled=true;send.textContent='Sending…';conversationForm.setAttribute('aria-busy','true');status.textContent='';
+  const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),20000);
+  try{
+   const response=await fetch(endpoint,{method:'POST',body:new FormData(conversationForm),headers:{Accept:'application/json'},signal:controller.signal});
+   if(!response.ok)throw new Error('Submission failed');
+   conversationForm.reset();status.textContent='Thank you. Your message has been sent. We’ll be in touch.';
+  }catch(error){status.textContent=error.name==='AbortError'?'We couldn’t confirm delivery. Please email hello@maavglobal.com before trying again.':'Your message could not be sent. Please try again or email hello@maavglobal.com.';}
+  finally{clearTimeout(timeout);sending=false;send.disabled=false;send.textContent='Send message';conversationForm.removeAttribute('aria-busy');status.focus();}
+ });
+}

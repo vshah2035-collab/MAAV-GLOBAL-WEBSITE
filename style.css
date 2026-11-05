@@ -179,3 +179,29 @@ html{scroll-padding-top:127px}
 .header-band a:focus-visible,.header-band button:focus-visible,#mobile-nav a:focus-visible{outline-color:var(--maav-sea-glass)}
 #mobile-nav{border-color:rgba(104,174,180,.25)}
 
+
+/* Compact contact form. */
+.conversation-open,.conversation-form button{border:0;cursor:pointer}
+.conversation-panel{max-width:760px;margin-top:28px;background:var(--maav-warm-ivory);border:1px solid var(--maav-mist-gray);border-radius:16px;padding:28px;scroll-margin-top:130px}
+.form-intro{font-size:20px;font-weight:500;color:var(--maav-midnight-teal);margin:0 0 22px}
+.form-fields{display:grid;grid-template-columns:1fr 1fr;gap:18px 22px}
+.form-fields label{display:block;font-size:14px;font-weight:500;color:var(--maav-midnight-teal)}
+.form-fields label span{font-weight:400;color:var(--maav-slate-gray)}
+.field-wide{grid-column:1/-1}
+.form-fields input,.form-fields textarea{display:block;width:100%;min-width:0;margin-top:7px;padding:11px 12px;border:1px solid #a6b6b9;border-radius:6px;background:var(--maav-white);color:var(--maav-midnight-teal);font:400 16px/1.5 var(--font-body)}
+.form-fields textarea{resize:vertical;min-height:114px}
+.form-fields input:focus-visible,.form-fields textarea:focus-visible{outline:2px solid var(--maav-muted-teal);outline-offset:2px}
+.form-actions{display:flex;align-items:center;gap:22px;margin-top:22px}
+.form-close{background:transparent;color:var(--maav-midnight-teal);font-size:14px;min-height:44px;padding:8px}
+.form-close:hover{text-decoration:underline}
+.conversation-form .button:disabled{opacity:.65;cursor:wait}
+.form-status{font-size:15px;margin:16px 0 0;color:var(--maav-midnight-teal)}
+.form-status:empty{display:none}
+@media(max-width:760px){.conversation-panel{padding:22px 18px;scroll-margin-top:108px}.form-fields{grid-template-columns:1fr;gap:16px}.form-intro{font-size:18px}.form-actions{gap:18px}}
+
+/* Secondary email option beneath the contact button. */
+.contact-actions{flex-shrink:0;text-align:right}
+.contact-email-note{margin:12px 0 0;font-size:13px;line-height:1.6;color:var(--maav-slate-gray)}
+.contact-email-note .email{font-size:inherit;color:var(--maav-midnight-teal);border-bottom:0}
+.contact-email-note .email:hover{text-decoration:underline;text-underline-offset:3px}
+@media(max-width:760px){.contact-actions{text-align:left}.contact-email-note{margin-top:12px}}
